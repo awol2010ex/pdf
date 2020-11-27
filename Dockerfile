@@ -11,7 +11,7 @@ RUN apk add libreoffice \
     fc-cache -f
 
 RUN apk add --no-cache build-base libffi libffi-dev
-
+RUN apk add --update ttf-dejavu
 RUN pip install Flask requests gevent
 COPY . $APP_HOME
 
