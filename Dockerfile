@@ -18,4 +18,9 @@ COPY . $APP_HOME
 # prevent libreoffice from querying ::1 (ipv6 ::1 is rejected until istio 1.1)
 RUN mkdir -p /etc/cups && echo "ServerName 127.0.0.1" > /etc/cups/client.conf
 
+
+RUN cp /app/SimSun.ttf /usr/share/fonts/
+RUN chmod 644 /usr/share/fonts/SimSun.ttf
+RUN fc-cache –fv
+
 CMD ["python", "to-pdf.py"]
